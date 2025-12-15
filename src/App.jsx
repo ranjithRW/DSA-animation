@@ -435,7 +435,7 @@ function App() {
 
       <section className="panel">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-          <h3>OpenAI Explanation</h3>
+          <h3>AI Explanation</h3>
           <button 
             className="primary" 
             onClick={handleExplain}
@@ -447,7 +447,7 @@ function App() {
               fontSize: '14px'
             }}
           >
-            {isExplaining ? 'Requesting...' : 'Explain with OpenAI'}
+            {isExplaining ? 'Requesting...' : 'Explain with AI'}
           </button>
         </div>
         <p className="small">
