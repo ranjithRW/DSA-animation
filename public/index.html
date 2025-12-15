@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA Algorithm Animator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <p class="eyebrow">Sorting & Searching</p>
+          <h1>Algorithm Animator</h1>
+          <p class="lede">
+            Pick an algorithm, enter your array (comma separated), and watch the step-by-step animation.
+          </p>
+        </div>
+        <div class="status">
+          <span id="statusChip" class="chip">Idle</span>
+          <button id="explainBtn" class="ghost">Explain with OpenAI</button>
+        </div>
+      </header>
+
+      <section class="controls">
+        <div class="field">
+          <label for="algorithm">Algorithm</label>
+          <select id="algorithm">
+            <option value="bubble">Bubble Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="quick">Quick Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="linear">Linear Search</option>
+            <option value="binary">Binary Search</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="arrayInput">Array (comma separated)</label>
+          <input id="arrayInput" type="text" placeholder="e.g. 5,3,8,1,2" />
+        </div>
+        <div class="field" id="targetField">
+          <label for="targetInput">Target (search only)</label>
+          <input id="targetInput" type="text" placeholder="e.g. 8" />
+        </div>
+        <div class="field">
+          <label for="speed">Speed (ms/step)</label>
+          <input id="speed" type="range" min="100" max="1500" step="50" value="600" />
+          <span id="speedLabel">600ms</span>
+        </div>
+        <div class="actions">
+          <button id="startBtn" class="primary">Start</button>
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn" class="ghost">Reset</button>
+        </div>
+      </section>
+
+      <section class="visualizer">
+        <div class="visual-header">
+          <h2>Steps</h2>
+          <p id="stepMeta">0 / 0</p>
+        </div>
+        <div id="bars" class="bars"></div>
+        <p id="note" class="note">Enter data and start to view the animation.</p>
+      </section>
+
+      <section class="panel">
+        <h3>OpenAI Explanation</h3>
+        <p class="small">
+         Click the button in the header to fetch a concise explanation.
+        </p>
+        <pre id="explanation" class="explanation">No explanation yet.</pre>
+      </section>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
