@@ -649,6 +649,13 @@ button:hover:not(.primary):not(.ghost) {
   font-size: 14px;
 }
 
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
 .panel h3 {
   margin-top: 0;
   margin-bottom: 8px;

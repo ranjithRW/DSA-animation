@@ -46,23 +46,18 @@ function App() {
         {array.map((value, idx) => {
           const height = (value / max) * 200 + 30;
           let className = 'bar';
-          let isHighlighted = false;
 
           if (highlights?.compare?.includes(idx)) {
             className += ' compare';
-            isHighlighted = true;
           }
           if (highlights?.swap?.includes(idx)) {
             className += ' swap';
-            isHighlighted = true;
           }
           if (highlights?.found?.includes(idx)) {
             className += ' found';
-            isHighlighted = true;
           }
           if (highlights?.pivot === idx) {
             className += ' pivot';
-            isHighlighted = true;
           }
 
           return (
@@ -434,18 +429,12 @@ function App() {
       )}
 
       <section className="panel">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+        <div className="panel-header">
           <h3>AI Explanation</h3>
           <button 
             className="primary" 
             onClick={handleExplain}
             disabled={isExplaining}
-            style={{ 
-              opacity: isExplaining ? 0.6 : 1, 
-              cursor: isExplaining ? 'not-allowed' : 'pointer',
-              padding: '8px 16px',
-              fontSize: '14px'
-            }}
           >
             {isExplaining ? 'Requesting...' : 'Explain with AI'}
           </button>
@@ -457,18 +446,12 @@ function App() {
       </section>
 
       <section className="panel">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+        <div className="panel-header">
           <h3>Generated Code</h3>
           <button 
             className="primary" 
             onClick={handleGenerateCode}
             disabled={isGeneratingCode}
-            style={{ 
-              opacity: isGeneratingCode ? 0.6 : 1, 
-              cursor: isGeneratingCode ? 'not-allowed' : 'pointer',
-              padding: '8px 16px',
-              fontSize: '14px'
-            }}
           >
             {isGeneratingCode ? 'Generating...' : 'Generate Code'}
           </button>
