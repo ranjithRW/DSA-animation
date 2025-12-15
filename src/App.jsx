@@ -129,10 +129,23 @@ function App() {
     const newSteps = currentAlgo.fn(arr, target);
     setSteps(newSteps);
     setStepIndex(0);
-    setTimeout(() => {
-      if (timerRef.current) clearInterval(timerRef.current);
-      startAnimation();
-    }, 100);
+    if (timerRef.current) clearInterval(timerRef.current);
+    
+    // Start animation immediately using newSteps directly
+    if (!newSteps.length) return;
+    
+    timerRef.current = setInterval(() => {
+      setStepIndex((prev) => {
+        if (prev >= newSteps.length - 1) {
+          clearInterval(timerRef.current);
+          setStatus({ text: 'Done', color: 'var(--success)' });
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, speed);
+    
+    setStatus({ text: 'Running', color: 'var(--accent)' });
   };
 
   const handleExplain = async () => {
